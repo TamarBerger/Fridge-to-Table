@@ -101,3 +101,25 @@ button {
 footer {
     text-align: center;
 }
+
+@media screen and (max-width:320px) {
+    header {
+        font-size: 1.2em;
+        padding-bottom: -15px;
+    }
+    .introduction,
+    .ingredients-wrapper,
+    .allergies-wrapper{
+        font-size: 1em;
+        padding: 20px 10px;
+        margin: 20px;
+    }
+    .search {
+        font-size: 1em;
+        margin-top: 20px;
+        padding: 40px 0;
+    }
+    #results {
+        padding: 40px 0;
+    }
+}
