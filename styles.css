@@ -102,7 +102,7 @@ footer {
     text-align: center;
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width:600px) {
     header {
         font-size: 1.2em;
         padding-bottom: -15px;
