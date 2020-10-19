@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Fridge to Table</title>
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">-->
+        <script src="https://kit.fontawesome.com/1f00fc2e66.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <img id="logo" src="../week12/images/logo-cropped.png" alt="Handmade painting of a bowl." title="The logo of the page"><h1>Fridge to Table</h1>
+        </header>
+        <main>
+            <div class="introduction">
+                <h2 id="headline">Hey Foodie,</h2>
+                <p>You've got to the right place.<br> Not much things left in the fridge? You can't come up with an idea of what to make with the ingredients you have?<br> We can work it out. We know you are probably starving, just a couple of things we need to know before starting:</p>
+            </div>
+            <div id="search">
+                <form id="search-form">
+                    <div class="ingredients-wrapper">
+                        <label for="ingredients">What's in your fridge?</label>
+                        <div class="ingredients-search-wrapper">
+                            <input id="ingredients" name="ingredients" type="text" placeholder="Enter an ingredient...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="allergies-wrapper">
+                        <label for="allergies">Any allergies to worry about?</label>
+                        <div class="allergies-search-wrapper">
+                            <input id="allergies" name="allergies" type="text" placeholder="Enter an ingredient...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="search">
+                <h2>Cool, there's what to work with.</h2>
+                <a id="srchbtn" class="active" href=".result">Let's find you something to eat</a>
+            </div>
+            <div id="results">
+                <!-- One result-->
+                <div class="result" data-result-id="1">
+                    <div class="recepies-details">
+                        <div class="recipe name">{{ recipe name }}</div>
+                        <div class="recipe content">{{ recipe content }}</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>© Tamar & Lihi Berger</p>
+            <!--<p>© Tamar Berger, Lihi Berger for the help and Joanie Simon for the photograph</p>-->
+        </footer>
+    </body>
+</html>
