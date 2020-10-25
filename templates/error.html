@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content%}
+<div id="search">
+    <div class="error">
+        <h1>Oopss...</h1>
+        {% if no_results_statement %}
+            <h2>{{ no_results_statement }}</h2>
+        {% endif %}
+        {% if error_statement %}
+        <h2>{{ error_statement }}</h2>
+        {% endif %}
+    </div>
+    <form id="search-form" action="/data" method="POST">
+        <div class="ingredients-wrapper">
+            <label for="ingredients">What's in your fridge?</label>
+            <span> 
+                {% if ings %}
+                {{', '.join(ings)}}
+                {% endif %}
+            </span>
+            <div class="ingredients-search-wrapper">
+                <input id="ingredients" name="ingredients" type="text" placeholder="Enter an ingredient...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+                <a href="/delete/ing"><img src="../static/images/minus-button15px.png"></a>
+            </div>
+        </div>
+        <div class="allergies-wrapper">
+            <label for="allergies">Any allergies to worry about?</label>
+            <span> 
+                {% if alls %}
+                {{', '.join(alls)}}
+                {% endif %}
+            </span>
+            <div class="allergies-search-wrapper">
+                <input id="allergies" name="allergies" type="text" placeholder="Enter an ingredient..." value="{{allergies}}">
+                <button type="submit"><i class="fas fa-search"></i></button>
+                <a href="/delete/all"><img src="../static/images/minus-button15px.png"></a>
+            </div>
+        </div>
+    </form>
+    <form class="check-form" action="/data/results" method="POST">
+        <div class="Returned">
+            <div class="checkbox_wrapper">
+                <label id="returned_label for="error_Returned" >Would you like to see results that consists only the ingredients you have inserted?</label>
+                <input id="error_Returned" name="Returned" type="checkbox" value="1">
+            </div>
+            <div class="index_wrapper">
+                <div class="search">
+                    <h2>Cool, that's something to work with.</h2>
+                    <button id="srchbtn" class="active" type="submit">Let's find you something to eat</button>
+                </ class="search">
+            </ class="index_wrapper">
+        </div>
+    </form>
+</div>
+
+
+{% endblock%}

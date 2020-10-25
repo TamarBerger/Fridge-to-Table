@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <script src="https://kit.fontawesome.com/1f00fc2e66.js" crossorigin="anonymous"></script>
+        <title>Fridge to Table</title>
+    </head>
+    <body>
+        <header>
+            <img id="logo" src="{{url_for('static', filename='images/logo-cropped-compressed.png')}}" alt="Handmade painting of a bowl." title="The logo of the page"><h1>Fridge to Table</h1>
+        </header>
+        <main>
+            {% block content%}
+            {% endblock %}
+        </main>
+        <footer>
+            <p>© Tamar & Lihi Berger</p>
+            <!--<p>© Tamar Berger, Lihi Berger for the help and Joanie Simon for the photograph</p>-->
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,307 @@
+html {
+    text-align: left;
+    direction: ltr;
+    margin: 0;
+    padding: 0;
+    font-family: 'EB Garamond', serif;
+    letter-spacing: 2px;
+}
+
+body {
+    margin: 250px 0 0 0;
+    padding: 0;
+    background-image: url(../images/image3-1920px.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    color:#F7F7F7;
+    background-color:rgba(138, 161, 166, 1);
+    margin-bottom: 50px;
+    padding: 15px 60px;
+    font-size: 1.5em;
+    letter-spacing: 5px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0 ,0, 0, 0.2);
+
+}
+
+h1, #logo {
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.introduction {
+    background-color: rgba(247,247, 247, 0.7);
+    padding: 20px 150px 20px 70px;
+    margin: 70px 70px 0 70px;
+    font-size: 1.5em;
+}
+
+#headline {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+.ingredients-wrapper {
+    background-color:  rgba(247,247, 247, 0.7);
+    padding: 25px 250px 5px 70px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(72, 89, 90);
+    margin: 0 70px;
+
+}
+
+.allergies-wrapper {
+    background-color:  rgba(247,247, 247, 0.7);
+    padding: 15px 250px 20px 70px;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: rgb(72, 89, 90);
+    margin: 0 70px;
+
+}
+
+.checkbox_wrapper {
+    margin: 0 150px;
+    padding: 0 250px 40px 70px;
+    text-align: left;
+    letter-spacing: 3px;
+    font-size: 1.5em;
+    color: black;
+    background-color: rgba(247,247, 247, 0.7);
+}
+
+a:link, 
+a:active,
+a:visited,
+#srchbtn {
+    margin-top: 20px;
+    color:rgba(138, 161, 166, 1);
+    text-decoration: none;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+#srchbtn:hover {
+    color:  rgb(90, 89, 89);
+}
+
+input {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    background: rgba(230, 230, 230, 0);
+    outline: none;
+    border: none;
+}
+
+.search {
+    text-align: center;
+    font-size: 1.5em;
+    background-color: rgba(255, 255, 255, 1);
+    margin: 100px 0 0 0;
+    padding: 100px 0;
+}
+
+#results {
+    background-color:rgba(138, 161, 166, 1);
+    text-align: center;
+    padding: 100px 0;
+    
+}
+
+footer {
+    text-align: center;
+}
+
+.error {
+    color: rgb(167, 45, 45);
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(247,247, 247, 0.7);
+    margin: 0 70px;
+}
+
+.error h2 {
+    margin-top: -30px;
+    font-weight: lighter;
+}
+
+span {
+    color:rgb(61, 125, 139);
+    font-weight: lighter;
+    letter-spacing: 2.5px;
+}
+
+.results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.recipe_wrapper {
+    background-color:rgba(138, 161, 166, 0.6);
+    box-shadow: 0 0 8px rgba(0 ,0, 0, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 50px;
+    padding: 25px 5px;
+    font-family: 'EB Garamond', serif;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.accordion_label {
+    display: block;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    color: rgb(71, 86, 88);
+    letter-spacing: 6px;
+    font-size: 2em;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+    border-radius: 5px;
+}
+
+.accordion_label:hover {
+    background-color: rgba(0 ,0, 0, 0.1);
+}
+
+.accordion_label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 6px;
+    right: 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+    background-size: contain;
+    transition: transform 0.4s;
+}
+
+.accordion_content {
+    line-height: 1.6;
+    display: none;
+  }
+  
+  .accordion_input {
+    display: none;
+  }
+  
+  .accordion_input:checked ~ .accordion_content {
+    display: block;
+  }
+  
+  .accordion_input:checked ~ .accordion_label::after {
+    transform: translateY(-50%) rotate(0.5turn);
+  }
+
+#recipe-label {
+    text-align: center;
+    color: white;
+    letter-spacing: 2.5px;
+}
+
+iframe {
+    display: block;
+    width: 300px;
+    height: 300px;
+    border-radius: 3px;
+    text-align: center;
+    background-position: center center;
+}
+
+.centered_iframe {
+    text-align: center;
+}
+
+ul {
+    text-align: left;
+}
+
+#recipe-link {
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    letter-spacing: 3px;
+    position: relative;
+    margin-left: 30px;
+}
+@media screen and (max-width:600px) {
+    header {
+        font-size: 1.2em;
+        padding-bottom: -15px;
+    }
+    .introduction,
+    .ingredients-wrapper,
+    .allergies-wrapper,
+    .checkbox_wrapper,
+    .error{
+        font-size: 1em;
+        padding: 20px 10px;
+        margin: 20px;
+    }
+    .search {
+        font-size: 1em;
+        margin-top: 20px;
+        padding: 40px 20px;
+    }
+    #results {
+        padding: 40px 0;
+    }
+    .results {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .checkbox_wrapper {
+        margin: 0 70px;
+    }
+}
+
+@media screen and (min-width:1100px) {
+    header {
+        font-size: 1.7em;
+    }
+    .introduction,
+    .ingredients-wrapper,
+    .allergies-wrapper,
+    .checkbox_wrapper,
+    .error {
+        font-size: 1.7em;
+        margin: 0 150px;
+    }
+    .introduction {
+        margin-top: 100px;
+    }
+    .search {
+        font-size: 1.7em;
+    }
+}
+
+@media screen and (min-width:1300px) {
+    .results {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+    .recipe_wrapper {
+        padding: 25px 100px;
+    }
+}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+    
+    <div class=results>
+        {% for recipe in recipes %}
+            <div class="recipe_wrapper">
+                <h1 id="recipe-label">{{ recipe['recipe']['label'] }}</h1>
+                <iframe class="centered_iframe" src="{{ recipe['recipe']['image'] }}" title="Recipe title: {{ recipe['recipe']['label'] }}" scrolling="no" frameborder="0" align="center" loading="lazy" height="300" width="300"></iframe>
+                <input id="{{ recipe['recipe']['label'] }}" type="checkbox" name="accordion" class="accordion_input">
+                <label for="{{ recipe['recipe']['label'] }}" class="accordion_label">What is needed?</label>
+                <div class="accordion_content">
+                    <ul>
+                    {% for part in recipe['recipe']['ingredients'] %}
+                    <li>{{ part['text'] }}</li>
+                    {% endfor %}
+                    </ul>
+                    <a id="recipe-link" href="{{ recipe['recipe']['url'] }}">Go to the full recipe</a>
+                </div>    
+            </div>
+        {% endfor %}
+    </ class=results>
+
+{% endblock%}
