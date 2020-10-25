@@ -4,13 +4,10 @@ import json
 import pprint
 
 app_key = "5803d23bd3962e2f394ab3081bbf235a	"
-search_app_key = "217175b9eba1af3c0605af28230d1951"
 app_id = "efc3f977"
-search_app_id = "16ddb809"
 api_base_url="https://api.edamam.com/search"
-search_api_base_url="http://api.edamam.com/auto-complete"
 error_statement= "You should enter at least two ingredient so that we will have something to work with."
-no_results_statement=f"We got no results that matches your search. We recommend either to check your spelling or to try some different ingredients."
+no_results_statement="We got no results that matches your search. We recommend either to check your spelling or to try some different ingredients."
  
 
 app= Flask(__name__)
