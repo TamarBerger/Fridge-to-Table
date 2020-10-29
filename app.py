@@ -19,11 +19,13 @@ max_number_of_ingredients = 50
 @app.route('/')
 def forms():
     ings.clear()
+    del ings [:]
     alls.clear()
+    del alls [:]
     return render_template('index.html')
 
 
-@app.route('/data', methods=['POST'])
+@app.route('/data', methods=['GET', 'POST'])
 def data():
     ingredients = request.form.get("ingredients")
     if ingredients != "":
