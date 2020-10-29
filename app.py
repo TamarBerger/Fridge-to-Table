@@ -18,6 +18,8 @@ max_number_of_ingredients = 50
 
 @app.route('/')
 def forms():
+    ings.clear()
+    alls.clear()
     return render_template('index.html')
 
 
