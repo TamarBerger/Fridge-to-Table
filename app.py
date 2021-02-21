@@ -56,10 +56,10 @@ def result():
     if len(ings) < 2:
         return render_template("error.html", error_statement=error_statement, alls=alls, ings=ings)
     else:
-        Returned = request.form.get("Returned")
-        if Returned == "1" or Returned == 1:
+        Limited = request.form.get("Limited")
+        if Limited:
             max_number_of_ingredients = len(ings)
-        else:  # Returned == "None" or Returned is None:
+        else: 
             max_number_of_ingredients = 50
         if len(alls) == 0:
             endpoint_path = f"q={ings}&ingr={max_number_of_ingredients}"
