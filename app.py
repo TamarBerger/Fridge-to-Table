@@ -6,14 +6,20 @@ app_id = "efc3f977"
 api_base_url = "https://api.edamam.com/search"
 error_statement = "You should enter at least two ingredient so that we will have something to work with."
 no_results_statement = "We got no results that matches your search. We recommend either to check your spelling or to try some different ingredients."
- 
 
-app= Flask(__name__)
+
+app = Flask(__name__)
 app.config['SECRET_KEY'] = '08642_fridge_to_table_13579'
 
 ings = []
 alls = []
+
 max_number_of_ingredients = 50
+
+
+def get_list_as_string(list_name):
+    string = ', '.join(list_name)
+    return string
 
 
 @app.route('/')
@@ -33,6 +39,9 @@ def data():
     allergies = request.form.get("allergies")
     if allergies != "" and len(ings) < max_number_of_ingredients:
         alls.append(allergies)
+
+    ings = get_list_as_string(ings)
+    alls = get_list_as_string(alls)
     return render_template('index.html', ings=ings, alls=alls)
 
 
@@ -40,6 +49,8 @@ def data():
 def delete_ings():
     if len(ings) > 0:
         del ings[-1]
+    ings = get_list_as_string(ings)
+    alls = get_list_as_string(alls)
     return render_template('index.html', ings=ings, alls=alls)
 
 
@@ -47,12 +58,16 @@ def delete_ings():
 def delete_alls():
     if len(alls) > 0:
         del alls[-1]
+    ings = get_list_as_string(ings)
+    alls = get_list_as_string(alls)
     return render_template('index.html', ings=ings, alls=alls)
 
 
 @app.route('/data/results', methods=['GET', 'POST'])
 def result():
     if len(ings) < 2:
+        ings = get_list_as_string(ings)
+        alls = get_list_as_string(alls)
         return render_template("error.html", error_statement=error_statement, alls=alls, ings=ings)
     else:
         Returned = request.form.get("Returned")
@@ -69,6 +84,8 @@ def result():
         r = requests.get(endpoint)
         recipes = r.json()['hits']
         if len(recipes) == 0:
+            ings = get_list_as_string(ings)
+    ````````alls = get_list_as_string(alls)
             return render_template('error.html', no_results_statement=no_results_statement, alls=alls, ings=ings)
         else:
             return render_template('results.html', recipes=recipes, i=endpoint)

@@ -27,8 +27,11 @@
             <div class="allergies-wrapper">
                 <label for="allergies">Any allergies to worry about?</label>
                 <span> 
-                    {% if alls %}
+                    <!-- {% if alls %}
                     {{', '.join(alls)}}
+                    {% endif %} -->
+                    {% if alls %}
+                    {{alls}}
                     {% endif %}
                 </span>
                 <div class="allergies-search-wrapper">
