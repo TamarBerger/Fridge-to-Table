@@ -15,9 +15,10 @@
         <div class="ingredients-wrapper">
             <label for="ingredients">What's in your fridge?</label>
             <span> 
-                {% if ings %}
+                <!-- {% if ings %}
                 {{', '.join(ings)}}
-                {% endif %}
+                {% endif %} -->
+                {{ings}}
             </span>
             <div class="ingredients-search-wrapper">
                 <input id="ingredients" name="ingredients" type="text" placeholder="Enter an ingredient...">
@@ -28,9 +29,10 @@
         <div class="allergies-wrapper">
             <label for="allergies">Any allergies to worry about?</label>
             <span> 
-                {% if alls %}
+                <!-- {% if alls %}
                 {{', '.join(alls)}}
-                {% endif %}
+                {% endif %} -->
+                {{alls}}
             </span>
             <div class="allergies-search-wrapper">
                 <input id="allergies" name="allergies" type="text" placeholder="Enter an ingredient..." value="{{allergies}}">
