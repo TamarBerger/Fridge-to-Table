@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 import requests
 
 app_key = "5803d23bd3962e2f394ab3081bbf235a	"
@@ -9,31 +10,47 @@ no_results_statement = "We got no results that matches your search. We recommend
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '08642_fridge_to_table_13579'
 
-ings = []
-alls = []
+app.config['SECRET_KEY'] = '08642_fridge_to_table_13579'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+
+class Ingredients(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ingredient_name = db.Column(db.String(100), nullable=False)
+
+class Allergies(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    allergy_name = db.Column(db.String(100), nullable=False)
+
+
+# ings = []
+# alls = []
 
 max_number_of_ingredients = 50
 
 
 @app.route('/')
 def forms():
-    ings.clear()
-    del ings[:]
-    alls.clear()
-    del alls[:]
     return render_template('index.html')
 
 
 @app.route('/data', methods=['GET', 'POST'])
 def data():
-    ingredients = request.form.get("ingredients")
-    if ingredients != "" and len(ings) < max_number_of_ingredients:
-        ings.append(ingredients)
-    allergies = request.form.get("allergies")
-    if allergies != "" and len(ings) < max_number_of_ingredients:
-        alls.append(allergies)
+    ingredient = request.form.get("ingredients")
+    if ingredient != "":
+        new_ing = Ingredients(ingredient_name=ingredient)
+        db.session.add(new_ing)
+    allergy = request.form.get("allergies")
+    if allergy != "":
+        new_all = Allergies(allergy_name=allergy)
+        db.session.add(new_all)
+    db.session.commit()
+    ings = Ingredients.query.all()
+    alls = Allergies.query.all()
     return render_template('index.html', ings=ings, alls=alls)
 
 
