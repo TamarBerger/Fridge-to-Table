@@ -18,7 +18,8 @@ max_number_of_ingredients = 50
 
 
 def get_list_as_string(list_name):
-    string = ', '.join(list_name)
+    separator = ', '
+    string = separator.join(list_name)
     return string
 
 
