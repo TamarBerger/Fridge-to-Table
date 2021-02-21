@@ -11,8 +11,11 @@
             <div class="ingredients-wrapper">
                 <label for="ingredients">What's in your fridge?</label>
                 <span> 
-                    {% if ings %}
+                    <!-- {% if ings %}
                     {{', '.join(ings)}}
+                    {% endif %} -->
+                    {% if ings %}
+                    {{ings}}
                     {% endif %}
                 </span>
                 <div class="ingredients-search-wrapper">
